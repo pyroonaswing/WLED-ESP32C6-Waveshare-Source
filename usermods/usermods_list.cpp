@@ -1,23 +1,16 @@
 /*
- * This file defines which usermods are compiled into WLED.
- * 
- * Add your custom usermods here.
+ * usermods_list.cpp
+ * Defines which usermods are compiled into WLED.
  */
 
 #include "wled.h"
 
-// Example usermods (leave commented out unless you want them)
-////# include "usermod_temperature.h"
-////# include "usermod_audio.h"
-
-// --- Your custom LCD usermod ---
-#include "usermod_st7789.cpp"   // 👈 tells WLED about the LCD usermod
+// --- Custom Usermods ---
+#include "usermod_st7789.cpp"   // LCD display
+#include "usermod_input.cpp"    // Buttons + joystick
 
 void registerUsermods() {
-  // Example registrations
-  ////usermods.add(new UsermodTemperature());
-  ////usermods.add(new UsermodAudio());
-
-  // --- Register your LCD usermod ---
-  usermods.add(new UsermodST7789());   // 👈 actually enables it at runtime
+  // --- Register Usermods ---
+  usermods.add(new UsermodST7789());   // LCD
+  usermods.add(new UsermodInput());    // Input controls
 }
